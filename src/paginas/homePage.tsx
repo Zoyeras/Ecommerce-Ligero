@@ -63,7 +63,7 @@ const HomePage = () => {
   const [isMobileView, setIsMobileView] = useState(false);
   const productsBatchSize = isMobileView ? MOBILE_PRODUCTS_BATCH_SIZE : PRODUCTS_BATCH_SIZE;
 
-  const whatsappNumber = "573219064790";
+  const whatsappNumber = "573112617910";
 
   const showNotice = (message: string, kind: "error" | "success" = "error") => {
     setNotice({ message, kind });
@@ -358,7 +358,7 @@ const HomePage = () => {
                 Ver coleccion
               </a>
               <a
-                href="https://wa.me/573219064790"
+                href="https://wa.me/3112617910"
                 target="_blank"
                 rel="noreferrer"
                 className={`rounded-2xl border px-6 py-3 font-semibold transition ${
@@ -478,9 +478,13 @@ const HomePage = () => {
                   >
                     <div className="relative overflow-hidden">
                       <img
+                          key={product.image} // fuerza re-render si la URL cambia
                           src={product.image}
                           alt={product.title}
+                          referrerPolicy="no-referrer"
+                          crossOrigin="anonymous"
                           className="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-64"
+                          onError={(e) => console.error('Error cargando imagen:', e)} // para depurar
                       />
                       <span className="absolute left-3 top-3 rounded-full bg-black/55 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
                     {product.badge}
@@ -703,8 +707,8 @@ const HomePage = () => {
             </p>
 
             <div className="mt-6 space-y-3 text-sm">
-              <p>📱 +57 321 9064790</p>
-              <p>✉ camisetasydisenososo@gmail.com</p>
+              <p>📱 +57 311 2617910</p>
+              <p>✉ loaizaocampos@gmail.com</p>
               <p>📍 Bogota, Colombia</p>
             </div>
           </div>
