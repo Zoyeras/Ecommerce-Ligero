@@ -6,6 +6,7 @@ import { DarkModeContext } from "./context/DarkModeContext";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [logoUrl, setLogoUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const isDark =
@@ -23,21 +24,35 @@ function App() {
       localStorage.setItem("darkMode", "false");
     }
   }, [darkMode]);
+  useEffect(() => {
+    const fetchLogo = async () => {
+      try {
+        const res = await fetch('/api/logo');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.logoUrl) setLogoUrl(data.logoUrl);
+        }
+      } catch (err) {
+        console.error('Failed to fetch logo:', err);
+      }
+    };
+    fetchLogo();
+  }, []);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 
   return (
-    <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <BrowserRouter>
-        <div className={darkMode ? "dark" : ""}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </DarkModeContext.Provider>
+      <DarkModeContext.Provider value={{ darkMode, toggleDarkMode, logoUrl, setLogoUrl }}>
+        <BrowserRouter>
+          <div className={darkMode ? "dark" : ""}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </DarkModeContext.Provider>
   );
 }
 

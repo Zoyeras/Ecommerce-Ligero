@@ -28,7 +28,7 @@ const footerSections = [
 ];
 
 const Footer = () => {
-  const { darkMode } = useDarkMode();
+  const { darkMode, logoUrl } = useDarkMode();
   const year = new Date().getFullYear();
 
   return (
@@ -40,7 +40,13 @@ const Footer = () => {
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div className="mb-4 flex items-center gap-3">
-              <img src="/imagenes/logo2.png" alt="Demo Store" className="h-11 w-11 rounded-xl object-cover" />
+              <img
+                  src={logoUrl || "/imagenes/logo2.png"}
+                  alt="Demo Store"
+                  className="h-11 w-11 rounded-xl object-cover"
+                  referrerPolicy="no-referrer"
+                  crossOrigin="anonymous"
+              />
               <div>
                 <p className={`text-lg font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>Demo Store</p>
                 <p className="text-sm">catálogo dinámico</p>

@@ -10,7 +10,7 @@ const navItems = [
 ];
 
 const Header = () => {
-  const { darkMode, toggleDarkMode } = useDarkMode();
+  const { darkMode, toggleDarkMode, logoUrl } = useDarkMode();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -36,9 +36,11 @@ const Header = () => {
         <div className="mx-auto flex h-18 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
           <a href="#inicio" className="group flex items-center gap-3">
             <img
-                src="/imagenes/logo1.png"
+                src={logoUrl || "/imagenes/logo1.png"}
                 alt="Demo Store"
                 className="h-10 w-10 rounded-xl object-cover"
+                referrerPolicy="no-referrer"
+                crossOrigin="anonymous"
             />
             <div className="leading-tight">
               <p

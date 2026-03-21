@@ -322,6 +322,8 @@ const HomePage = () => {
                 <img
                     src={previewProduct.image}
                     alt={previewProduct.title}
+                    referrerPolicy="no-referrer"
+                    crossOrigin="anonymous"
                     className="max-h-[80vh] w-full object-contain"
                 />
                 <div className={`flex items-center justify-between gap-3 px-5 py-4 ${darkMode ? "text-slate-200" : "text-slate-700"}`}>
@@ -406,6 +408,8 @@ const HomePage = () => {
                       <img
                           src={visibleProducts[0]?.image}
                           alt={visibleProducts[0]?.title}
+                          referrerPolicy="no-referrer"
+                          crossOrigin="anonymous"
                           className="h-[28rem] w-full rounded-[1.5rem] object-cover"
                       />
                       <div className="absolute inset-x-7 bottom-7 rounded-2xl bg-black/45 p-4 text-white backdrop-blur-md">
