@@ -21,18 +21,19 @@ type CartItem = {
   quantity: number;
 };
 
+// Hero slides genéricos para demo
 const heroSlides = [
   {
-    title: "Tu camiseta no es ropa.\nEs identidad.",
-    subtitle: "Drops con diseños unicos para que te miren dos veces.",
+    title: "Descubre tu estilo.\nProductos únicos.",
+    subtitle: "Catálogo dinámico actualizado desde Google Drive.",
   },
   {
-    title: "Personalizamos tu idea en menos de 48h.",
-    subtitle: "Nos mandas referencia, nosotros la convertimos en pieza top.",
+    title: "Personalización rápida.\nEn menos de 48h.",
+    subtitle: "Envía tu idea y nosotros la hacemos realidad.",
   },
   {
-    title: "Calidad premium que aguanta lavadas reales.",
-    subtitle: "Algodon suave, estampado durable y colores vivos.",
+    title: "Calidad premium.\nDiseños que perduran.",
+    subtitle: "Materiales seleccionados y acabados profesionales.",
   },
 ];
 
@@ -63,7 +64,11 @@ const HomePage = () => {
   const [isMobileView, setIsMobileView] = useState(false);
   const productsBatchSize = isMobileView ? MOBILE_PRODUCTS_BATCH_SIZE : PRODUCTS_BATCH_SIZE;
 
-  const whatsappNumber = "573112617910";
+  // DATOS DE CONTACTO GENÉRICOS PARA DEMO
+  const whatsappNumber = "1234567890"; // reemplazar por número real si se desea
+  const contactEmail = "demo@ejemplo.com";
+  const contactPhone = "+57 300 000 0000";
+  const contactLocation = "Ciudad, País";
 
   const showNotice = (message: string, kind: "error" | "success" = "error") => {
     setNotice({ message, kind });
@@ -195,7 +200,7 @@ const HomePage = () => {
         .join("\n");
 
     const message = [
-      "Hola O.S.O Studio, quiero comprar estas camisetas:",
+      "Hola, quiero realizar un pedido:",
       "",
       itemsLines,
       "",
@@ -221,7 +226,7 @@ const HomePage = () => {
     }
 
     const message = [
-      "Hola O.S.O Studio, tengo una propuesta para ustedes:",
+      "Hola, tengo una propuesta:",
       "",
       `Nombre: ${contactForm.nombre.trim()}`,
       `Ubicacion: ${contactForm.ubicacion.trim()}`,
@@ -239,7 +244,6 @@ const HomePage = () => {
   };
 
   const toggleLike = (productId: number) => {
-    // Función para marcar favoritos (puede extenderse en futuro)
     console.log("Favorito toggled:", productId);
   };
 
@@ -330,108 +334,108 @@ const HomePage = () => {
 
         <Header />
 
-      <section id="inicio" className="relative isolate overflow-hidden px-4 pb-20 pt-32 sm:px-6">
-        <div className="hero-mesh absolute inset-0 -z-20" />
-        <div className="absolute -left-24 top-20 -z-10 h-72 w-72 rounded-full bg-fuchsia-500/30 blur-3xl" />
-        <div className="absolute -right-16 bottom-10 -z-10 h-72 w-72 rounded-full bg-indigo-500/30 blur-3xl" />
+        <section id="inicio" className="relative isolate overflow-hidden px-4 pb-20 pt-32 sm:px-6">
+          <div className="hero-mesh absolute inset-0 -z-20" />
+          <div className="absolute -left-24 top-20 -z-10 h-72 w-72 rounded-full bg-fuchsia-500/30 blur-3xl" />
+          <div className="absolute -right-16 bottom-10 -z-10 h-72 w-72 rounded-full bg-indigo-500/30 blur-3xl" />
 
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-2">
-          <div>
-            <p className={`mb-4 inline-flex rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-[0.18em] ${
-              darkMode
-                ? "border-fuchsia-400/40 bg-fuchsia-500/10 text-fuchsia-200"
-                : "border-fuchsia-300 bg-fuchsia-50 text-fuchsia-700"
-            }`}>
-              nueva temporada 2026
-            </p>
-            <h1 className="whitespace-pre-line text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
-              {heroSlides[0].title}
-            </h1>
-            <p className={`mt-5 max-w-xl text-lg ${darkMode ? "text-slate-300" : "text-slate-600"}`}>
-              {heroSlides[0].subtitle}
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a
-                href="#coleccion"
-                className="rounded-2xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-6 py-3 font-semibold text-white shadow-lg shadow-fuchsia-500/30 transition hover:scale-[1.02]"
-              >
-                Ver coleccion
-              </a>
-              <a
-                href="https://wa.me/3112617910"
-                target="_blank"
-                rel="noreferrer"
-                className={`rounded-2xl border px-6 py-3 font-semibold transition ${
+          <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-2">
+            <div>
+              <p className={`mb-4 inline-flex rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-[0.18em] ${
                   darkMode
-                    ? "border-white/20 bg-white/5 hover:bg-white/10"
-                    : "border-slate-300 bg-white hover:bg-slate-100"
-                }`}
-              >
-                Cotizar por WhatsApp
-              </a>
-            </div>
-
-            <div className="mt-8 grid max-w-md grid-cols-3 gap-3 text-center text-sm">
-              {[
-                { value: "+1.4k", label: "clientes felices" },
-                { value: "48h", label: "produccion express" },
-                { value: "4.9/5", label: "calificacion" },
-              ].map((metric) => (
-                <div
-                  key={metric.label}
-                  className={`rounded-2xl border p-3 ${
-                    darkMode ? "border-white/10 bg-white/5" : "border-slate-200 bg-white"
-                  }`}
+                      ? "border-fuchsia-400/40 bg-fuchsia-500/10 text-fuchsia-200"
+                      : "border-fuchsia-300 bg-fuchsia-50 text-fuchsia-700"
+              }`}>
+                demo interactiva
+              </p>
+              <h1 className="whitespace-pre-line text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+                {heroSlides[0].title}
+              </h1>
+              <p className={`mt-5 max-w-xl text-lg ${darkMode ? "text-slate-300" : "text-slate-600"}`}>
+                {heroSlides[0].subtitle}
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                    href="#coleccion"
+                    className="rounded-2xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-6 py-3 font-semibold text-white shadow-lg shadow-fuchsia-500/30 transition hover:scale-[1.02]"
                 >
-                  <p className="text-lg font-extrabold">{metric.value}</p>
-                  <p className={darkMode ? "text-slate-400" : "text-slate-500"}>{metric.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+                  Ver catálogo
+                </a>
+                <a
+                    href={`https://wa.me/${whatsappNumber}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`rounded-2xl border px-6 py-3 font-semibold transition ${
+                        darkMode
+                            ? "border-white/20 bg-white/5 hover:bg-white/10"
+                            : "border-slate-300 bg-white hover:bg-slate-100"
+                    }`}
+                >
+                  Contactar por WhatsApp
+                </a>
+              </div>
 
-          <div className="relative">
-            <div className={`absolute -inset-2 rounded-[2rem] bg-gradient-to-r from-fuchsia-500/40 to-indigo-500/40 blur-2xl`} />
-            <div
-              className={`relative overflow-hidden rounded-[2rem] border p-4 ${
-                darkMode ? "border-white/10 bg-slate-900/80" : "border-slate-200 bg-white/95"
-              }`}
-            >
-              {visibleProducts.length > 0 ? (
-                <>
-                  <img
-                    src={visibleProducts[0]?.image}
-                    alt={visibleProducts[0]?.title}
-                    className="h-[28rem] w-full rounded-[1.5rem] object-cover"
-                  />
-                  <div className="absolute inset-x-7 bottom-7 rounded-2xl bg-black/45 p-4 text-white backdrop-blur-md">
-                    <p className="text-xs uppercase tracking-[0.16em] text-fuchsia-200">Drop destacado</p>
-                    <p className="text-lg font-semibold">{visibleProducts[0]?.title}</p>
-                  </div>
-                </>
-              ) : (
-                <div className="flex h-[28rem] items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-fuchsia-500/10 to-indigo-500/10">
-                  <p className={`text-center text-sm font-semibold ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                    Cargando productos destacados...
-                  </p>
-                </div>
-              )}
+              <div className="mt-8 grid max-w-md grid-cols-3 gap-3 text-center text-sm">
+                {[
+                  { value: "+100", label: "productos demo" },
+                  { value: "48h", label: "respuesta rápida" },
+                  { value: "4.9/5", label: "calificación" },
+                ].map((metric) => (
+                    <div
+                        key={metric.label}
+                        className={`rounded-2xl border p-3 ${
+                            darkMode ? "border-white/10 bg-white/5" : "border-slate-200 bg-white"
+                        }`}
+                    >
+                      <p className="text-lg font-extrabold">{metric.value}</p>
+                      <p className={darkMode ? "text-slate-400" : "text-slate-500"}>{metric.label}</p>
+                    </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className={`absolute -inset-2 rounded-[2rem] bg-gradient-to-r from-fuchsia-500/40 to-indigo-500/40 blur-2xl`} />
+              <div
+                  className={`relative overflow-hidden rounded-[2rem] border p-4 ${
+                      darkMode ? "border-white/10 bg-slate-900/80" : "border-slate-200 bg-white/95"
+                  }`}
+              >
+                {visibleProducts.length > 0 ? (
+                    <>
+                      <img
+                          src={visibleProducts[0]?.image}
+                          alt={visibleProducts[0]?.title}
+                          className="h-[28rem] w-full rounded-[1.5rem] object-cover"
+                      />
+                      <div className="absolute inset-x-7 bottom-7 rounded-2xl bg-black/45 p-4 text-white backdrop-blur-md">
+                        <p className="text-xs uppercase tracking-[0.16em] text-fuchsia-200">Producto destacado</p>
+                        <p className="text-lg font-semibold">{visibleProducts[0]?.title}</p>
+                      </div>
+                    </>
+                ) : (
+                    <div className="flex h-[28rem] items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-fuchsia-500/10 to-indigo-500/10">
+                      <p className={`text-center text-sm font-semibold ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
+                        Cargando productos destacados...
+                      </p>
+                    </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
         <section id="coleccion" className="px-4 pb-20 sm:px-6">
           <div className="mx-auto w-full max-w-7xl">
             <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${darkMode ? "text-fuchsia-300" : "text-fuchsia-700"}`}>
-                  coleccion curada
+                  catálogo dinámico
                 </p>
-                <h2 className="mt-1 text-3xl font-black sm:text-4xl">Encuentra tu estilo en segundos</h2>
+                <h2 className="mt-1 text-3xl font-black sm:text-4xl">Explora la colección</h2>
               </div>
               <p className={`max-w-md text-sm ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                Filtra por categoria o busca por palabra clave. Diseno pensado para comprar rapido y decidir sin ruido.
+                Productos actualizados en tiempo real desde Google Drive. Filtra por categoría o busca.
               </p>
             </div>
 
@@ -478,13 +482,13 @@ const HomePage = () => {
                   >
                     <div className="relative overflow-hidden">
                       <img
-                          key={product.image} // fuerza re-render si la URL cambia
+                          key={product.image}
                           src={product.image}
                           alt={product.title}
                           referrerPolicy="no-referrer"
                           crossOrigin="anonymous"
                           className="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-64"
-                          onError={(e) => console.error('Error cargando imagen:', e)} // para depurar
+                          onError={(e) => console.error('Error cargando imagen:', e)}
                       />
                       <span className="absolute left-3 top-3 rounded-full bg-black/55 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
                     {product.badge}
@@ -539,253 +543,253 @@ const HomePage = () => {
                       }
                       className="rounded-xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-6 py-3 text-sm font-semibold text-white"
                   >
-                    Ver mas
+                    Ver más
                   </button>
                 </div>
             )}
 
-           <div
-             className={`mt-8 rounded-3xl border p-5 ${
-               darkMode ? "border-white/10 bg-white/5" : "border-slate-200 bg-white"
-             }`}
-           >
-            <div className="mb-4 flex items-center justify-between gap-4">
-              <h3 className="text-xl font-bold">Carrito de compra</h3>
-              <button
-                onClick={clearCart}
-                className={`rounded-lg px-3 py-1 text-xs font-semibold ${
-                  darkMode ? "bg-white/10 text-slate-200" : "bg-slate-100 text-slate-700"
+            <div
+                className={`mt-8 rounded-3xl border p-5 ${
+                    darkMode ? "border-white/10 bg-white/5" : "border-slate-200 bg-white"
                 }`}
-              >
-                Vaciar carrito
-              </button>
-            </div>
-
-            {cart.length === 0 ? (
-              <p className={`text-sm ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                Aun no agregas productos. Pulsa "Agregar" en cualquier camiseta.
-              </p>
-            ) : (
-              <div className="space-y-3">
-                {cart.map((item) => (
-                  <div
-                    key={item.id}
-                    className={`flex items-center justify-between rounded-2xl border px-3 py-2 ${
-                      darkMode ? "border-white/10 bg-slate-900/50" : "border-slate-200 bg-slate-50"
+            >
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <h3 className="text-xl font-bold">Carrito de compra</h3>
+                <button
+                    onClick={clearCart}
+                    className={`rounded-lg px-3 py-1 text-xs font-semibold ${
+                        darkMode ? "bg-white/10 text-slate-200" : "bg-slate-100 text-slate-700"
                     }`}
-                  >
-                    <div>
-                      <p className="text-sm font-semibold">{item.title}</p>
-                      <p className={`text-xs ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                        {item.price}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => changeQuantity(item.id, -1)}
-                        className={`h-7 w-7 rounded-full ${
-                          darkMode ? "bg-white/10" : "bg-slate-200"
-                        }`}
-                      >
-                        -
-                      </button>
-                      <span className="min-w-6 text-center text-sm font-semibold">
+                >
+                  Vaciar carrito
+                </button>
+              </div>
+
+              {cart.length === 0 ? (
+                  <p className={`text-sm ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
+                    Aún no agregas productos. Pulsa "Agregar" en cualquier artículo.
+                  </p>
+              ) : (
+                  <div className="space-y-3">
+                    {cart.map((item) => (
+                        <div
+                            key={item.id}
+                            className={`flex items-center justify-between rounded-2xl border px-3 py-2 ${
+                                darkMode ? "border-white/10 bg-slate-900/50" : "border-slate-200 bg-slate-50"
+                            }`}
+                        >
+                          <div>
+                            <p className="text-sm font-semibold">{item.title}</p>
+                            <p className={`text-xs ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
+                              {item.price}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => changeQuantity(item.id, -1)}
+                                className={`h-7 w-7 rounded-full ${
+                                    darkMode ? "bg-white/10" : "bg-slate-200"
+                                }`}
+                            >
+                              -
+                            </button>
+                            <span className="min-w-6 text-center text-sm font-semibold">
                         {item.quantity}
                       </span>
-                      <button
-                        onClick={() => changeQuantity(item.id, 1)}
-                        className={`h-7 w-7 rounded-full ${
-                          darkMode ? "bg-white/10" : "bg-slate-200"
-                        }`}
-                      >
-                        +
-                      </button>
-                    </div>
+                            <button
+                                onClick={() => changeQuantity(item.id, 1)}
+                                className={`h-7 w-7 rounded-full ${
+                                    darkMode ? "bg-white/10" : "bg-slate-200"
+                                }`}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
+                    ))}
                   </div>
-                ))}
+              )}
+
+              <p className="mt-4 text-sm font-semibold">
+                Total estimado: {formatPrice(cartTotal)}
+              </p>
+
+              <form className="mt-4 space-y-3" onSubmit={handleCartSubmit}>
+                <input
+                    type="text"
+                    name="nombre"
+                    value={checkoutForm.nombre}
+                    onChange={handleCheckoutChange}
+                    placeholder="Tu nombre"
+                    className={`w-full rounded-xl border px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
+                        darkMode
+                            ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
+                            : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
+                    }`}
+                />
+                <input
+                    type="text"
+                    name="ubicacion"
+                    value={checkoutForm.ubicacion}
+                    onChange={handleCheckoutChange}
+                    placeholder="Ubicación de entrega"
+                    className={`w-full rounded-xl border px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
+                        darkMode
+                            ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
+                            : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
+                    }`}
+                />
+                <textarea
+                    rows={3}
+                    name="notas"
+                    value={checkoutForm.notas}
+                    onChange={handleCheckoutChange}
+                    placeholder="Notas (talla, color, fecha, etc)"
+                    className={`w-full rounded-xl border px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
+                        darkMode
+                            ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
+                            : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
+                    }`}
+                />
+                <button
+                    type="submit"
+                    className="w-full rounded-xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-5 py-3 text-sm font-semibold text-white"
+                >
+                  Comprar por WhatsApp
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section id="proceso" className={`px-4 pb-20 sm:px-6`}>
+          <div className={`mx-auto grid w-full max-w-7xl gap-6 rounded-[2rem] border p-6 md:grid-cols-3 ${
+              darkMode ? "border-white/10 bg-white/5" : "border-slate-200 bg-white"
+          }`}>
+            {[
+              {
+                step: "01",
+                title: "Comparte tu idea",
+                text: "Envía referencias o una breve descripción por WhatsApp o email.",
+              },
+              {
+                step: "02",
+                title: "Diseñamos juntos",
+                text: "Recibirás una vista previa del diseño para aprobación.",
+              },
+              {
+                step: "03",
+                title: "Producción y entrega",
+                text: "Realizamos el producto y lo enviamos a la ubicación indicada.",
+              },
+            ].map((item) => (
+                <article
+                    key={item.step}
+                    className={`rounded-2xl border p-5 ${darkMode ? "border-white/10 bg-slate-900/70" : "border-slate-200 bg-slate-50"}`}
+                >
+                  <p className={`text-xs font-semibold tracking-[0.2em] ${darkMode ? "text-fuchsia-300" : "text-fuchsia-700"}`}>
+                    PASO {item.step}
+                  </p>
+                  <h3 className="mt-2 text-xl font-bold">{item.title}</h3>
+                  <p className={`mt-2 text-sm ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{item.text}</p>
+                </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="contacto" className="px-4 pb-16 sm:px-6">
+          <div className={`mx-auto grid w-full max-w-7xl gap-8 rounded-[2rem] border p-6 lg:grid-cols-2 ${
+              darkMode ? "border-white/10 bg-slate-900/80" : "border-slate-200 bg-white"
+          }`}>
+            <div>
+              <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${darkMode ? "text-fuchsia-300" : "text-fuchsia-700"}`}>
+                contacto directo
+              </p>
+              <h2 className="mt-2 text-3xl font-black">¿Tienes una idea?</h2>
+              <p className={`mt-3 max-w-lg text-sm ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
+                Escríbenos y te ayudaremos a materializar tu proyecto. Respondemos rápidamente.
+              </p>
+
+              <div className="mt-6 space-y-3 text-sm">
+                <p>📱 {contactPhone}</p>
+                <p>✉ {contactEmail}</p>
+                <p>📍 {contactLocation}</p>
               </div>
-            )}
+            </div>
 
-            <p className="mt-4 text-sm font-semibold">
-              Total estimado: {formatPrice(cartTotal)}
-            </p>
-
-            <form className="mt-4 space-y-3" onSubmit={handleCartSubmit}>
+            <form className="space-y-4" onSubmit={handleContactSubmit}>
               <input
-                type="text"
-                name="nombre"
-                value={checkoutForm.nombre}
-                onChange={handleCheckoutChange}
-                placeholder="Tu nombre"
-                className={`w-full rounded-xl border px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
-                  darkMode
-                    ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
-                    : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
-                }`}
+                  type="text"
+                  name="nombre"
+                  value={contactForm.nombre}
+                  onChange={handleContactChange}
+                  placeholder="Nombre"
+                  className={`w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
+                      darkMode
+                          ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
+                          : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
+                  }`}
               />
               <input
-                type="text"
-                name="ubicacion"
-                value={checkoutForm.ubicacion}
-                onChange={handleCheckoutChange}
-                placeholder="Ubicacion de entrega"
-                className={`w-full rounded-xl border px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
-                  darkMode
-                    ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
-                    : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
-                }`}
+                  type="text"
+                  name="ubicacion"
+                  value={contactForm.ubicacion}
+                  onChange={handleContactChange}
+                  placeholder="Ubicación (ciudad o barrio)"
+                  className={`w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
+                      darkMode
+                          ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
+                          : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
+                  }`}
+              />
+              <input
+                  type="text"
+                  name="tipoDiseno"
+                  value={contactForm.tipoDiseno}
+                  onChange={handleContactChange}
+                  placeholder="Tipo de producto o diseño"
+                  className={`w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
+                      darkMode
+                          ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
+                          : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
+                  }`}
+              />
+              <input
+                  type="text"
+                  name="cantidad"
+                  value={contactForm.cantidad}
+                  onChange={handleContactChange}
+                  placeholder="Cantidad aproximada"
+                  className={`w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
+                      darkMode
+                          ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
+                          : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
+                  }`}
               />
               <textarea
-                rows={3}
-                name="notas"
-                value={checkoutForm.notas}
-                onChange={handleCheckoutChange}
-                placeholder="Notas (talla, color, fecha, etc)"
-                className={`w-full rounded-xl border px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
-                  darkMode
-                    ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
-                    : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
-                }`}
+                  rows={4}
+                  name="detalles"
+                  value={contactForm.detalles}
+                  onChange={handleContactChange}
+                  placeholder="Cuéntanos tu idea, colores, referencias o fecha límite"
+                  className={`w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
+                      darkMode
+                          ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
+                          : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
+                  }`}
               />
               <button
-                type="submit"
-                className="w-full rounded-xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-5 py-3 text-sm font-semibold text-white"
+                  type="submit"
+                  className="w-full rounded-xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-5 py-3 text-sm font-semibold text-white"
               >
-                Comprar por WhatsApp
+                Enviar propuesta
               </button>
             </form>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="proceso" className={`px-4 pb-20 sm:px-6`}>
-        <div className={`mx-auto grid w-full max-w-7xl gap-6 rounded-[2rem] border p-6 md:grid-cols-3 ${
-          darkMode ? "border-white/10 bg-white/5" : "border-slate-200 bg-white"
-        }`}>
-          {[
-            {
-              step: "01",
-              title: "Cuéntanos tu idea",
-              text: "Nos envias referencias por WhatsApp o Instagram y te proponemos direccion visual.",
-            },
-            {
-              step: "02",
-              title: "Diseñamos y validamos",
-              text: "Te mostramos preview del diseño para aprobar antes de imprimir.",
-            },
-            {
-              step: "03",
-              title: "Producimos y enviamos",
-              text: "Estampado premium, control de calidad y envio seguro en todo Colombia.",
-            },
-          ].map((item) => (
-            <article
-              key={item.step}
-              className={`rounded-2xl border p-5 ${darkMode ? "border-white/10 bg-slate-900/70" : "border-slate-200 bg-slate-50"}`}
-            >
-              <p className={`text-xs font-semibold tracking-[0.2em] ${darkMode ? "text-fuchsia-300" : "text-fuchsia-700"}`}>
-                PASO {item.step}
-              </p>
-              <h3 className="mt-2 text-xl font-bold">{item.title}</h3>
-              <p className={`mt-2 text-sm ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="contacto" className="px-4 pb-16 sm:px-6">
-        <div className={`mx-auto grid w-full max-w-7xl gap-8 rounded-[2rem] border p-6 lg:grid-cols-2 ${
-          darkMode ? "border-white/10 bg-slate-900/80" : "border-slate-200 bg-white"
-        }`}>
-          <div>
-            <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${darkMode ? "text-fuchsia-300" : "text-fuchsia-700"}`}>
-              contacto directo
-            </p>
-            <h2 className="mt-2 text-3xl font-black">Listo para tu proximo drop</h2>
-            <p className={`mt-3 max-w-lg text-sm ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-              Si quieres vender con tu marca o hacer camisetas para evento, te respondemos rapido y te guiamos en todo el proceso.
-            </p>
-
-            <div className="mt-6 space-y-3 text-sm">
-              <p>📱 +57 311 2617910</p>
-              <p>✉ loaizaocampos@gmail.com</p>
-              <p>📍 Bogota, Colombia</p>
-            </div>
-          </div>
-
-          <form className="space-y-4" onSubmit={handleContactSubmit}>
-            <input
-              type="text"
-              name="nombre"
-              value={contactForm.nombre}
-              onChange={handleContactChange}
-              placeholder="Nombre"
-              className={`w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
-                darkMode
-                  ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
-                  : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
-              }`}
-            />
-            <input
-              type="text"
-              name="ubicacion"
-              value={contactForm.ubicacion}
-              onChange={handleContactChange}
-              placeholder="Ubicacion (ciudad o barrio)"
-              className={`w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
-                darkMode
-                  ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
-                  : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
-              }`}
-            />
-            <input
-              type="text"
-              name="tipoDiseno"
-              value={contactForm.tipoDiseno}
-              onChange={handleContactChange}
-              placeholder="Tipo de camisa o diseno"
-              className={`w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
-                darkMode
-                  ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
-                  : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
-              }`}
-            />
-            <input
-              type="text"
-              name="cantidad"
-              value={contactForm.cantidad}
-              onChange={handleContactChange}
-              placeholder="Cantidad aproximada"
-              className={`w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
-                darkMode
-                  ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
-                  : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
-              }`}
-            />
-            <textarea
-              rows={4}
-              name="detalles"
-              value={contactForm.detalles}
-              onChange={handleContactChange}
-              placeholder="Cuentanos idea, colores, referencias o fecha limite"
-              className={`w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500 ${
-                darkMode
-                  ? "border-white/10 bg-white/5 text-white placeholder:text-slate-400"
-                  : "border-slate-200 bg-slate-50 placeholder:text-slate-500"
-              }`}
-            />
-            <button
-              type="submit"
-              className="w-full rounded-xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-5 py-3 text-sm font-semibold text-white"
-            >
-              Quiero mi propuesta
-            </button>
-          </form>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
   );
 };
 
